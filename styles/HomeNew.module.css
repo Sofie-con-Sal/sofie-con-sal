@@ -1,13 +1,4 @@
-@font-face {
-  font-family: 'Gothic';
-  src: url('/fonts/GothicFont1.otf') format('opentype');
-}
 
-:root{
-  --bg: #3F4E7D;
-  --title-color: #FFF4E3;
-  --wave-color: #FAA320;
-}
 
 .container {
   min-height: 100vh;
@@ -117,23 +108,6 @@
 }
 
 .waveContent {
-
-
-.waveContainer.open .waveContent {
-  transform: translateY(0);
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.waveContent h2 { margin: 0 0 0.5rem 0; font-family: 'Gothic', serif; }
-.waveContent p { margin: 0 0 0.5rem 0; line-height: 1.5; }
-
-/* small screens tweak so the content doesn't overshoot the top */
-@media (max-width: 520px) {
-  .title { font-size: clamp(2.2rem, 10vw, 4rem); }
-  .waveContainer.open { height: 62vh; }
-}
-
   position: relative;
   z-index: 50;
   width: min(900px, 92%);
