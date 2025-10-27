@@ -1,0 +1,57 @@
+@font-face {
+  font-family: 'Gothic';
+  src: url('/fonts/your-gothic-font.otf') format('opentype');
+}
+
+.container {
+  min-height: 100vh;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main {
+  padding: 4rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.title {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+  font-family: 'Gothic', serif;
+  text-align: center;
+}
+
+.scroll {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 2rem;
+  background: #f8f3e8;
+  border: 2px solid #8b4513;
+  border-radius: 10px;
+  height: 80px;
+  overflow: hidden;
+  transition: height 0.5s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.scroll.open {
+  height: 400px;
+  cursor: default;
+}
+
+.scrollContent {
+  padding: 2rem;
+}
+
+.scrollContent h2 {
+  margin-top: 0;
+  font-family: 'Gothic', serif;
+}
