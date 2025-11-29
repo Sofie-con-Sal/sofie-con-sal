@@ -1,0 +1,164 @@
+@font-face {
+  font-family: 'Gothic';
+  src: url('/fonts/GothicFont1.otf') format('opentype');
+}
+
+:root{
+  --bg: #3F4E7D;
+  --title-color: #FFF4E3;
+  --wave-color: FAA320#;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--bg);
+  color: var(--title-color);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+.header{
+  width: 100%;
+  max-width: 1200px;
+  padding: 1rem 2rem;
+  display:flex;
+  justify-content:flex-end;
+  box-sizing: border-box;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.navLink {
+  color: rgba(255,244,227,0.95);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.navLink:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.main {
+  padding: 4rem 0 6rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.title {
+  margin: 0;
+  line-height: 1.05;
+  font-size: clamp(3.5rem, 9vw, 8rem);
+  font-family: 'Gothic', serif;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: var(--title-color);
+  text-transform: none;
+  margin-top: 2rem;
+}
+
+.lead {
+  margin-top: 1rem;
+  color: rgba(255,244,227,0.95);
+  max-width: 720px;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', serif;
+}
+
+/* Wave styles */
+.waveContainer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 110px;
+  pointer-events: auto;
+  transition: height 600ms cubic-bezier(.2,.9,.2,1), transform 400ms ease;
+  z-index: 40;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.waveContainer.open {
+  height: 48vh; /* expands upward when opened */
+}
+
+.waveSvg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 110px;
+  display: block;
+}
+
+.waveGroup { transform-origin: center; }
+
+.wavePath {
+  animation: waveMove 9s linear infinite;
+}
+
+@keyframes waveMove {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-8%); }
+  100% { transform: translateX(0); }
+}
+
+.waveContent {
+
+
+.waveContainer.open .waveContent {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.waveContent h2 { margin: 0 0 0.5rem 0; font-family: 'Gothic', serif; }
+.waveContent p { margin: 0 0 0.5rem 0; line-height: 1.5; }
+
+/* small screens tweak so the content doesn't overshoot the top */
+@media (max-width: 520px) {
+  .title { font-size: clamp(2.2rem, 10vw, 4rem); }
+  .waveContainer.open { height: 62vh; }
+}
+
+  position: relative;
+  z-index: 50;
+  width: min(900px, 92%);
+  max-width: 1100px;
+  color: #1b1b1b;
+  padding: 1.25rem 1.5rem;
+  transform: translateY(36px);
+  opacity: 0;
+  transition: transform 600ms cubic-bezier(.2,.9,.2,1), opacity 400ms ease;
+  pointer-events: none;
+  background: rgba(255,255,255,0.94);
+  border-radius: 10px 10px 0 0;
+}
+
+.waveContainer.open .waveContent {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.waveContent h2 { margin: 0 0 0.5rem 0; font-family: 'Gothic', serif; }
+.waveContent p { margin: 0 0 0.5rem 0; line-height: 1.5; }
+
+/* small screens tweak so the content doesn't overshoot the top */
+@media (max-width: 520px) {
+  .title { font-size: clamp(2.2rem, 10vw, 4rem); }
+  .waveContainer.open { height: 62vh; }
+}

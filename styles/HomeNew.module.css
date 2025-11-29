@@ -1,0 +1,397 @@
+/* Custom cursor */
+.container,
+.container * {
+  cursor: none !important;
+}
+
+.customCursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #003bad;
+  background: transparent;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  will-change: left, top;
+  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease, border 0.2s ease;
+}
+
+.customCursor.hover {
+  width: 28px;
+  height: 28px;
+  background-color: #003bad;
+  border: none;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  color: var(--title-color);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/Images/ElRanchito.jpg') center center/cover no-repeat fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: overlay;
+  z-index: -1;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logoLink {
+  display: block;
+  position: relative;
+  transition: transform 0.2s ease;
+}
+
+.logoLink:hover {
+  transform: scale(1.05);
+}
+
+.logo {
+  width: auto;
+  height: 80px;
+  object-fit: contain;
+  margin-left: 1rem;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.navLink {
+  color: rgba(255,244,227,0.95);
+  text-decoration: none;
+  padding: 8px 10px;
+  border-radius: 8px;
+  transition: background 160ms ease, color 160ms ease;
+}
+
+.navLink:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.menuContainer {
+  position: relative;
+}
+
+.kebabMenu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 12px;
+  margin-right: -5px;
+  margin-top: -5px;
+  z-index: 10;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.kebabMenu span {
+  background-color: #FFF4E3;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  display: block;
+  transition: background-color 0.2s ease;
+}
+
+.kebabMenu:hover span {
+  background-color: rgba(255,244,227,0.8);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0.5rem;
+  background: rgba(63, 78, 125, 0.95);
+  border-radius: 8px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  backdrop-filter: blur(5px);
+  min-width: 120px;
+  animation: fadeIn 0.2s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.dropdownMenu .navLink {
+  padding: 0.5rem 1rem;
+  width: 100%;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main {
+  padding: 4rem 0 6rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 50;
+}
+
+.title {
+  margin: 0;
+  line-height: 1.05;
+  font-size: clamp(4rem, 10vw, 9rem);
+  font-family: 'Gothic', serif;
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: var(--title-color);
+  text-transform: none;
+  margin-top: 4rem;
+  white-space: nowrap;
+}
+
+.lead {
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: rgba(255,244,227,0.95);
+  max-width: 720px;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.subLead {
+  margin-top: 0.25rem;
+  color: rgba(255,244,227,0.75);
+  max-width: 720px;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+/* Wave styles */
+.waveContainer {
+  /* fixed to bottom, show wave at lower height by default */
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50vh; /* lower height when closed */
+  pointer-events: auto;
+  transition: height 480ms cubic-bezier(.2,.9,.2,1), background 360ms ease;
+  z-index: 40;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  transform: translateY(0);
+  overflow: hidden;
+  background: transparent; /* no red background until opened */
+}
+
+.waveContainer.open {
+  /* expand to cover more screen and position wave above content */
+  height: 120vh;
+  background: linear-gradient(to bottom, transparent 0%, transparent 55vh, #340909 55vh, #340909 100%);
+}
+
+.waveSvg {
+  position: absolute;
+  bottom: 0;
+  /* Position SVG to cover viewport with extra width for seamless loop */
+  left: 0;
+  width: 200vw; /* Double width to contain both wave groups */
+  height: 65vh;
+  display: block;
+  pointer-events: none;
+  transition: height 480ms cubic-bezier(.2,.9,.2,1), bottom 480ms cubic-bezier(.2,.9,.2,1);
+  /* Animate the entire SVG for seamless loop */
+  animation: slideWaves 30s linear infinite;
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.waveContainer.open .waveSvg {
+  /* Position wave on top of red rectangle - bottom of wave at 55vh from bottom */
+  height: 65vh;
+  bottom: 55vh;
+}
+
+/* Slide entire SVG so first group exits as second enters */
+@keyframes slideWaves {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.waveGroup { 
+  transform-origin: center;
+  /* No animation on group - animation is on parent SVG */
+}
+
+.wavePath1, .wavePath2, .wavePath3 {
+  /* visible by default; morph animation will enhance shape if supported */
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+/* Seamless horizontal wave flow animation - moves both groups together */
+@keyframes slideWaves {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Vertical wave motion for natural flow */
+@keyframes morphWave {
+  0%, 100% {
+    opacity: 1;
+    d: path("M-9 763L39.5209 776.318C88.0418 789.637 185.084 816.274 282.122 816.274C379.164 816.274 476.206 789.637 573.248 789.637C670.287 789.637 767.328 816.274 864.37 816.274C961.412 816.274 1058.45 789.637 1155.49 789.637C1252.53 789.637 1349.58 816.274 1446.62 816.274C1543.66 816.274 1640.7 789.637 1689.22 776.318L1737.74 763V1116.9H-9V763Z");
+  }
+  33% {
+    opacity: 1;
+    d: path("M-9 894.285L39.5209 880.966C88.0418 867.646 185.084 841.009 282.122 841.009C379.164 841.009 476.206 867.646 573.248 867.646C670.287 867.646 767.328 841.009 864.37 841.009C961.412 841.009 1058.45 867.646 1155.49 867.646C1252.53 867.646 1349.58 841.009 1446.62 841.009C1543.66 841.009 1640.7 867.646 1689.22 880.966L1737.74 894.285V1116.9H-9V894.285Z");
+  }
+  66% {
+    opacity: 1;
+    d: path("M-9 865.744L39.5209 879.063C88.0418 892.381 185.084 919.018 282.122 919.018C379.164 919.018 476.206 892.381 573.248 892.381C670.287 892.381 767.328 919.018 864.37 919.018C961.412 919.018 1058.45 892.381 1155.49 892.381C1252.53 892.381 1349.58 919.018 1446.62 919.018C1543.66 919.018 1640.7 892.381 1689.22 879.063L1737.74 865.744V1116.9H-9V865.744Z");
+  }
+}
+
+/* Apply vertical morphing to individual wave paths */
+.wavePath1 {
+  animation: morphWave 8s ease-in-out infinite;
+  transform: translateY(-120px);
+}
+
+.wavePath2 {
+  animation: morphWave 8s ease-in-out infinite;
+  animation-delay: -2.67s;
+  transform: translateY(-60px);
+}
+
+.wavePath3 {
+  animation: morphWave 8s ease-in-out infinite;
+  animation-delay: -5.34s;
+  transform: translateY(0px);
+}
+
+.waveContent {
+  position: relative;
+  z-index: 50;
+  width: min(900px, 92%);
+  max-width: 1100px;
+  color: #ffffff; /* white text inside red block */
+  padding: 2rem 1.5rem;
+  transform: translateY(12px);
+  opacity: 0;
+  transition: transform 360ms cubic-bezier(.2,.9,.2,1), opacity 300ms ease;
+  pointer-events: none;
+  background: transparent; /* remove the white box */
+  border-radius: 0;
+}
+
+.waveContainer.open .waveContent {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Close button inside expanded red panel */
+.closeButton {
+  position: absolute;
+  top: 0.75rem;
+  right: 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255,255,255,0.6);
+  border: 2px solid rgba(255,255,255,0.6);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 60;
+  transition: background 160ms ease, transform 120ms ease;
+}
+
+.closeButton:hover {
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-1px);
+}
+
+.closeButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.12);
+}
+
+.waveContent h2 { margin: 0 0 0.5rem 0; font-family: 'Gothic', serif; }
+.waveContent p { margin: 0 0 0.5rem 0; line-height: 1.5; }
+
+.content {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.substackLink {
+  display: inline-block;
+  color: var(--title-color);
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border: 2px solid var(--title-color);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-family: 'Gothic', serif;
+}
+
+.substackLink:hover {
+  background: rgba(255, 244, 227, 0.1);
+  transform: translateY(-2px);
+}
+
+/* small screens tweak so the content doesn't overshoot the top */
+@media (max-width: 520px) {
+  .title { font-size: clamp(2.2rem, 10vw, 4rem); }
+  .waveContainer.open { height: 62vh; }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "wave-portfolio",
+  "version": "1.0.0",
+  "description": "A portfolio project featuring a wave animation and an About Me section.",
+  "main": "src/index.html",
+  "scripts": {
+    "start": "live-server src",
+    "build": "echo 'Build step can be added here'"
+  },
+  "keywords": [
+    "portfolio",
+    "wave",
+    "animation",
+    "about"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.1"
+  }
+}

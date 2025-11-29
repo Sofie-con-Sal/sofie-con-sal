@@ -1,0 +1,9 @@
+node_modules/
+.next/
+.env
+.DS_Store
+npm-debug.log
+.vscode/
+Past Website Versions Screen Recordings/*.mov
+*.mov
+Past Website Versions Screen Recordings/

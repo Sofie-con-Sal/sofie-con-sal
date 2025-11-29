@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Gothic';
+  src: url('/fonts/GothicFont1.otf') format('opentype');
+}
+
+:root{
+  --bg: #3F4E7D;
+  --title-color: #FFF4E3;
+  --wave-color: #A30808;
+}
+
+html,body,#__next{height:100%;}
+body{margin:0;font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;background:var(--bg);color:var(--title-color);}
